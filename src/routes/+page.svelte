@@ -1,16 +1,22 @@
 <script>
-	var date = new Date();
-	let time_now = String(date.getHours()) + ':' + String(date.getMinutes());
+	export let data;
+	let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+	let date = new Date();
+	let minutes = (date.getMinutes() < 10 ? '0' : '') + date.getMinutes();
+	let time_now = String(date.getHours()) + ':' + String(minutes);
+	let weekday = String(days[date.getDay()]);
 </script>
 
-<div class="background"></div>
-<div>
+<div class="text">
+	<p>Happy {weekday}!</p>
 	<p>
-		Happy Saturday!<br />
-		It's {time_now} <span class="faint">and</span> partly cloudy<br />
-		in Kemerovo.
+		<span class="faint">It's</span>
+		{time_now} <span class="faint">and</span>
+		{data.weather?.description}
 	</p>
+	<p><span class="faint">in</span> {data.weather?.city}.</p>
 </div>
+<div class="background"></div>
 
 <style>
 	@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
@@ -28,15 +34,37 @@
 		margin: 0;
 		color: white;
 		letter-spacing: -0.02em;
+		z-index: 999;
+		text-align: center;
+		opacity: 0.8;
+		text-wrap: balance;
+		margin-inline: 2%;
 	}
-	.background {
-		background-image: url(clouds.png);
-		background-repeat: no-repeat;
-		background-attachment: fixed;
-		background-size: cover;
+	.faint {
+		opacity: 0.5;
+	}
+	.text {
+		display: flex;
+		flex-direction: column;
+		align-content: center;
+		justify-content: center;
+		position: absolute;
 		width: 100vw;
 		height: 100vh;
-		margin: 0;
-		filter: blur(3px);
+	}
+	.background {
+		position: fixed;
+		left: -5px;
+		top: -5px;
+		z-index: 1;
+		display: block;
+		background-image: url(clouds.png);
+		width: 105vw;
+		height: 105vh;
+		-webkit-filter: blur(5px);
+		-moz-filter: blur(5px);
+		-o-filter: blur(5px);
+		-ms-filter: blur(5px);
+		filter: blur(5px);
 	}
 </style>
