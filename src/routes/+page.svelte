@@ -38,19 +38,18 @@
 		text-align: center;
 		opacity: 0.8;
 		text-wrap: balance;
-		margin-inline: 2%;
+
 	}
 	.faint {
 		opacity: 0.5;
 	}
 	.text {
-		display: flex;
+		display:flex;
 		flex-direction: column;
 		align-content: center;
 		justify-content: center;
-		position: absolute;
-		width: 100vw;
-		height: 100vh;
+		width: calc(100vw - 1.25vw);
+		height: calc(100vh - 10vh);
 	}
 	.background {
 		position: fixed;
