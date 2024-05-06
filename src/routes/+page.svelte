@@ -20,7 +20,7 @@
 
 <style>
 	@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-	p {
+	.text p {
 		font-family:
 			Inter,
 			BlinkMacSystemFont,
@@ -34,7 +34,7 @@
 		margin: 0;
 		color: white;
 		letter-spacing: -0.02em;
-		z-index: 999;
+		z-index: 1;
 		text-align: center;
 		opacity: 0.8;
 		text-wrap: balance;
@@ -55,7 +55,7 @@
 		position: fixed;
 		left: -5px;
 		top: -5px;
-		z-index: 1;
+		z-index: 0;
 		display: block;
 		background-image: url(clouds.png);
 		width: 105vw;
